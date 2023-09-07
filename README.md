@@ -1,1 +1,1 @@
-# Piro18_assignments
+# 피로그래밍 18기 활동 모음
