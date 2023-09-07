@@ -1,0 +1,22 @@
+<h1><a href="/">Movie Review🍿</a></h1>
+<hr>
+<form action="/movies/{{movie.id}}/update" method="post">
+    {% csrf_token %}
+    <div>제목: <input type="text" name="title" placeholder="영화 제목" value="{{ movie.title }}"></div>
+    <br>
+    <div>감독: <input type="text" name="director" placeholder="감독 이름" value="{{ movie.director }}"></div>
+    <br>
+    <div>주연: <input type="text" name="cast" placeholder="주연 배우" value="{{ movie.cast }}"></div>
+    <br>
+    <div>장르: <input type="text" name="genre" placeholder="장르" value="{{ movie.genre }}"></div>
+    <br>
+    <div>별점: <input type="text" name="star" placeholder="별점" value="{{ movie.star }}"></div>
+    <br>
+    <div>런타임: <input type="text" name="runtime" placeholder="런타임" value="{{movie.runtime }}"></div>
+    <br>
+    <div>리뷰: <textarea name="review" placeholder="리뷰">{{movie.review}}</textarea></div>
+    <br>
+    <div>
+        <input type="submit" value="저장하기">
+    </div>
+</form>

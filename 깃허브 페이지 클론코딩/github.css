@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+main {
+    background-color: rgb(45, 41, 41);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+.main-top {
+    display: inline-block;
+    position: relative;
+    left: 20px;
+    top: 0px;
+}
+
+.git-logo {
+    display: inline-block;
+    background-image: url(./gitlogo.jpg);
+    width: 30px;
+    height: 30px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.blind {
+    display: none;
+}
+
+#content {
+    color: white;
+    display: inline-block;
+    margin: 0;
+    list-style: none;
+    padding-top: 10px;
+    vertical-align: middle;
+}
+
+#content li {
+    float: left;
+    padding-left: 10px;
+}
+
+#content span {
+    font-size: small;
+    font-weight: 350;
+}
+
+#content .list {
+    padding-top: 10px;
+}
+
+#content li img {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+}
+
+.right-align {
+    display: inline-block;
+    position: relative;
+    left: 249px;
+    top: 10px;
+}
+
+#searchBar {
+    display: inline-block;
+    padding-top: 20px;
+}
+
+#searchBar input {
+    background-color: white;
+    opacity: 0.1;
+    border-radius: 20px;
+    width: 177px;
+}
+
+#sign-in-bar, #sign-up-bar {
+    display: inline-block;
+}
+
+.sign-inup-button {
+    display: inline-block;
+    background-color: transparent;
+    border-color: white;
+    height: 25px;
+    color: white;
+    border-radius: 12px;
+}
+
+#main-introduce {
+    display: inline-block;
+    padding: 150px;
+    padding-right: 50px;
+    position: absolute;
+    left: 115px;
+    top: 20px;
+}
+
+#main-introduce h5 {
+    color: gray;
+    font-weight: 500;
+}
+
+.main-signup {
+    width: 374px;
+    height: 389px;
+    padding: 150px;
+    background-color: white;
+    position: absolute;
+    right: 151px;
+    top: 85px;
+    border-radius: 10px;
+}
+
+.inline-block {
+    display: inline-block;
+    width: 148px;
+    height: 400px;
+    position: relative;
+    right: 130px;
+    top: -130px;
+}
+
+.signup {
+    padding-bottom: 10px;
+}
+
+.signup-list {
+    font-size: small;
+}
+
+.signup-input {
+    width: 340px;
+    height: 31px;
+}
+
+.signup-form .signup-input:focus {
+    background-color: rgb(212, 239, 248);
+}
+
+.explain {
+    width: 340px;
+    padding-bottom: 10px;
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.signup-button {
+    width: 340px;
+    height: 63px;
+    background-color: rgb(106, 182, 106);
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.colorBlue {
+    color: rgb(111, 152, 219);
+}
+
+.white {
+    background-color: white;
+    width: 100vw;
+    height: 20vh;
+    position: relative;
+    top: 570px;
+    z-index: 3;
+}
+
+.bottom-image {
+    background-image: url(./bottom_image.jpeg);
+    width: 100vw;
+    height: 20vh;
+    position: relative;
+    top: 0px;
+    left: 575px;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    z-index: 4;
+}
+

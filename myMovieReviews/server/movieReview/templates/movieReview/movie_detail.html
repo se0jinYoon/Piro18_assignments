@@ -1,0 +1,31 @@
+<header>
+    <a href="/">myMoviereviews</a>
+    <a href="/movies/create">Add a new review</a>
+</header>
+<hr>
+
+<div>
+    <h1>{{ movie.title }}</h1>
+    <a href="/movies/{{ movie.id }}/update">수정하기</a>
+    <form action="/movies/{{ movie.id}}/delete" method="post">
+        {% csrf_token %}
+        <input type="submit" value="삭제하기" />
+    </form>
+</div>
+
+<div>
+    <small>감독: {{ movie.director }}</small>
+    <br><br>
+    <small>주연: {{ movie.cast }}</small>
+    <br><br>
+    <small>장르: {{ movie.genre }}</small>
+    <br><br>
+    <small>별점: {{ movie.star }}</small>
+    <br><br>
+    <small>런타임: {{ movie.runtime }}</small>
+    <br><br>
+</div>
+
+<div>
+    <small>리뷰: {{ movie.review }}</small>
+</div>

@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/455c79571e.js" crossorigin="anonymous"></script>
+    <title>Pirostagram</title>
+    <!-- <link rel="stylesheet" href="{% static 'static/layout.css' %}"> -->
+</head>
+
+<body>
+    <div>
+        <a href="post_new/">게시글 작성</a>
+    </div>
+<div class="list_container">
+    {% for post in posts %}
+        <div class="post_{{post.id}}">
+            <div class="post_container">
+                <div class="post_img">
+                    <img src="{% static 'img/img_dowoon.png' %}" alt="">
+                </div>
+                <div class="post_title"> 제목: {{ post.title }}</div>
+                <div class="post_text"> 내용: {{ post.content }}</div>
+                <button class="post_like" onclick="onClickLike({{post.id}})"> <i class="fa-regular fa-heart"></i> </button>
+            </div>
+            
+
+            <form action="{{post.id}}/post_delete" method="post">
+                {% csrf_token %}
+                <input type="submit" value="게시글 삭제" />
+            </form>
+
+            <br> <br>
+
+            <div class="comment_main">
+                <div class="comment">
+                    <textarea 
+                        class="comment_form_{{post.id}}" 
+                        id="content_id" 
+                        cols="30" rows="1" 
+                        placeholder="댓글을 입력하세요.">
+                    </textarea>
+                </div>
+                <div class="comment_send">
+                    <button onclick="onClickComment({{post.id}})" id="comment_write">댓글 달기</button>
+                </div>
+            </div>
+            <hr>
+
+            <div class="comment_list_{{post.id}}">
+                {% if comments %}
+                    {% for comment in comments %}
+                        {% if post.id == comment.post.id %}
+                        <div class="comment_id_{{comment.id}}">
+                            <p>댓글: {{comment.content}}</p>
+                            <button onclick="onClickDelete({{post.id}}, {{comment.id}})">댓글 삭제</button>
+                            <hr>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+</div>
+</body>
+
+<script>
+    const requestComment = new XMLHttpRequest();
+    const requestDelete = new XMLHttpRequest();
+    const requestLike = new XMLHttpRequest();
+
+
+    //좋아요
+    const onClickLike = (id) => {
+        const url = '/like_ajax/';
+        requestLike.open("POST", url, true);
+        requestLike.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        requestLike.send(JSON.stringify({id: id}));
+    };
+
+    requestLike.onreadystatechange = () => {
+        if (requestLike.readyState === XMLHttpRequest.DONE) {
+            if (requestLike.status < 400) {
+                const {id, liked} = JSON.parse(requestLike.response);
+                const element = document.querySelector(`.post_${id} .post_like`);
+                const originHTML = element.innerHTML
+                console.log(element)
+                console.log(originHTML)
+                if (liked == true) {
+                    element.innerHTML = '<i class="fa-solid fa-heart"></i>';
+                } else if (liked == false) {
+                    element.innerHTML = '<i class="fa-regular fa-heart"></i>';
+                } else {
+                    element.innerHTML = '<i class="fa-regular fa-heart"></i>';
+                }
+            }
+        }
+    };
+
+    //댓글 달기
+    const onClickComment = (id) => {
+        const url = '/comment_ajax/';
+        content = document.querySelector(`.comment_form_${id}`).value;
+        requestComment.open("POST", url, true);
+        requestComment.setRequestHeader(
+            "content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        requestComment.send(JSON.stringify({id: id, content: content}));
+    }
+
+    requestComment.onreadystatechange = () => {
+        if (requestComment.readyState === XMLHttpRequest.DONE){
+            if (requestComment.status < 400) {
+                const {post_id, comment_id, content} = JSON.parse(requestComment.response);
+                const element = document.querySelector(`.comment_list_${post_id}`); //댓글:
+                const originHTML = element.innerHTML;
+                // const [com, commentContent] = originHTML.split(":")
+                // element.innerHTML = `댓글: ${commentContent}`;
+                element.innerHTML = originHTML + `<div class="comment_id_${comment_id}">
+                                <p>댓글: ${content}</p>
+                            <button onclick="onClickDelete(${post_id}, ${comment_id})">삭제</button>
+                            <hr>
+                        </div>`;
+                document.querySelector(`.comment_form_${post_id}`).value = "";
+            }
+        }
+    }
+
+    //댓글 삭제
+    const onClickDelete = (post_id, comment_id) => {
+        const url = 'comment_del_ajax/';
+        requestDelete.open("POST", url, true);
+        requestDelete.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        requestDelete.send(JSON.stringify({post_id: post_id, comment_id: comment_id}));
+    };
+
+    requestDelete.onreadystatechange = () => {
+        if (requestDelete.readyState === XMLHttpRequest.DONE) {
+            if (requestDelete.status < 400) {
+                const { post_id, comment_id } = JSON.parse(requestDelete.response);
+                const comment = document.querySelector(`.post_${post_id} .comment_id_${comment_id}`);
+                comment.remove();
+            }
+        }
+    };
+</script>
+
+</html>

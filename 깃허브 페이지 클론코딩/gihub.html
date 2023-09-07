@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github</title>
+    <link rel="stylesheet" href="github.css">
+    
+</head>
+<body>
+    <main> <!--회색부분-->
+        <div class="main-top">
+            <ul id="content">
+                <li><span class="git-logo"></span></li>
+                <li class="list"><span>Why Github?</span></li>
+                <li class="list"><i class="fa-solid fa-chevron-down"></i></li>
+                <li class="list"><span>Team</span></li>
+                <li class="list"><span>Enterprise</span></li>
+                <li class="list"><span>Explore</span></li>
+                <li class="list"><i class="fa-solid fa-chevron-down"></i></li>
+                <li class="list"><span>Marketplace</span></li>
+                <li class="list"><span>Pricing</span></li>
+                <li class="list"><i class="fa-solid fa-chevron-down"></i></li>     
+            </ul>
+
+            <div class="right-align">
+                <form id="searchBar">
+                    <input type="text" placeholder="Search GitHub">
+                </form>
+                <div id="sign-in-bar">
+                    <button class="sign-inup-button" onclick="location.href='https://github.com/login';" >Sign in</button>
+                </div>
+                <div id="sign-up-bar">
+                    <button class="sign-inup-button" onclick="location.href='https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home';">Sign up</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-introduce">
+            <h1 style="color: white">Built for <br> developers</h1>
+            <h5>GitHub is a development platform inspired by the<br> 
+                way you work. From <span style="color: white">opensource</span> to <span style="color: white">business</span>, you<br>
+                can host and review code, manage projects, and<br>
+                build software alongside 50 million developers.
+            </h5>
+        </div>
+        <div class="main-signup">
+        <div class="inline-block">
+            <div class="signup">
+                <div class="signup-list">Username</div>
+                <form class="signup-form">
+                    <input class= "signup-input" id="inputText" onchange="checkinput()" type="text">
+                </form>
+            </div>
+            <div class="signup">
+                <div class="signup-list">Email</div>
+                <form class="signup-form">
+                    <input class= "signup-input" id="inputText" onchange="checkinput()" type="text">
+                </form>
+            </div>
+            <div class="signup">
+                <div class="signup-list">Password</div>
+                <form class="signup-form">
+                    <input class= "signup-input" id="inputText" onchange="checkinput()" type="text">
+                </form>
+            </div>
+            <h6 class="explain">Make sure it's at least 15 characters OR 
+                at least 8 characters including a<br>number 
+                and a lowercase letter. <span class="colorBlue">Learn more.</span>
+            </h6>
+            <button class="signup-button" onclick="location.href='https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home';">
+                Sign up for GitHub
+            </button>
+            <h6 class="explain">By clicking "Sign up for GitHub", you agree to our 
+                <span class="colorBlue">Terms of Service</span> and<br><span class="colorBlue">Privacy Statement.</span>
+            We'll occasionally send you account related emails.</h6>
+        </div>    
+        </div>
+
+    </main>
+    
+    <footer> <!--밑에 그림부분-->
+        <div class="white">
+        <div class="bottom-image"></div>
+        </div>
+    </footer>  
+
+    <script 
+        src="https://kit.fontawesome.com/6fbcf91afd.js" 
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>

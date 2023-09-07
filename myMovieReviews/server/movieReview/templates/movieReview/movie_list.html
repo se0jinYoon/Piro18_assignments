@@ -1,0 +1,25 @@
+<html>
+    <head>
+       <title>My Movie review</title> 
+    </head>
+    
+    <body>
+            
+        <header>
+            <a href="">myMoviereviews</a>
+            <a href="/movies/create">Add a new review</a>
+        </header>
+        
+        <hr>
+
+        <main>
+            {% for movie in movies %}
+            <p><a href="/movies/{{ movie.pk }}">{{ movie.title }}</a></p>
+            <small>개봉년도: {{ movie.released }}</small>
+            <small>장르: {{ movie.genre }}</small>
+            <small>별점: {{ movie.star }}</small>
+            {% endfor %}
+        </main>
+
+    </body>
+</html>

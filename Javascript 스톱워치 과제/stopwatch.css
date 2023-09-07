@@ -1,0 +1,51 @@
+@import "/reset.css";
+
+.time-menu {
+    background-color: bisque;
+    width: 25rem;
+    height: 15rem;
+    border-radius: 2rem;
+    justify-content: center;
+}
+
+.time {
+    width: 80%;
+    height: 5rem;
+    text-align: center;
+    border-radius: 2rem;
+}
+
+.menu-list {
+    margin: 1rem;
+    padding: 0.8rem;
+    background-color: white;
+    height: 3rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+
+.record {
+    width: 28rem;
+    height: 15rem;
+    border-radius: 2rem;
+    background: white;
+}
+
+.record-top {
+    display: inline-block;
+    background-color: bisque;
+
+}
+
+.deletebtn {
+    background-color: bisque;
+    border: none;
+    border-radius: 1rem;
+}
+
+.checkTop {
+    width: 28rem;
+    background-color: bisque;
+    border-radius: 2rem;
+}
